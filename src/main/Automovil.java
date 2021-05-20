@@ -27,4 +27,30 @@ public class Automovil {
 	}
 
 	// Metodos
+	// getters
+	public String getPlaca() {
+		return this.placa;
+	}
+	
+	public String getModelo() {
+		return this.modelo;
+	}
+	
+	public String getMarca() {
+		return this.marca;
+	}
+	
+	public int getAnio() {
+		return this.anio;
+	}
+	
+	public int getPrecio() {
+		return this.precio;
+	}
+	
+	// setters
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
+	
 }
