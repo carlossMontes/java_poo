@@ -18,4 +18,19 @@ public class Mascota {
 	}
 	
 	// Metodos
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public byte getVida() {
+		return this.vida;
+	}
+	
+	public void setVida(byte vida) {
+		this.vida = vida;
+	}
 }
