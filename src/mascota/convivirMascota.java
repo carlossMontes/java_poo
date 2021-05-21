@@ -15,10 +15,11 @@ public class convivirMascota {
 		opcion = sc.nextByte();
 
 		while (opcion != 5) {
-//			Mascota mascota = new Mascota();
+			Mascota mascota = new Mascota();
 			switch (opcion) {
 				case 1:
 					System.out.println("Estas presionando el 1");
+					System.out.println(mascota.alimentar());
 					break;
 				case 2:
 					System.out.println("Estas presionando el 2");

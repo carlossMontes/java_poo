@@ -33,4 +33,19 @@ public class Mascota {
 	public void setVida(byte vida) {
 		this.vida = vida;
 	}
+	
+	public String alimentar() {
+		String msj;
+		byte vida = getVida();
+		
+		if (vida <= 100) {
+			msj = "Tu mascota se encuenta al 100%, mejor golpealo";
+		} else {
+			vida = (byte) (vida + 10);
+			setVida(vida);
+			msj = "Alimentación correcta. Tu mascota ahora tiene " + vida + "% de vida";
+		}
+		
+		return msj;
+	}
 }
