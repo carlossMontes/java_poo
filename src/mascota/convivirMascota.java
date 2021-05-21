@@ -13,7 +13,7 @@ public class convivirMascota {
 
 		Scanner sc = new Scanner(System.in);
 		opcion = sc.nextByte();
-
+		
 		while (opcion != 5) {
 			Mascota mascota = new Mascota();
 			switch (opcion) {
@@ -23,6 +23,7 @@ public class convivirMascota {
 					break;
 				case 2:
 					System.out.println("Estas presionando el 2");
+					System.out.println(mascota.golpear());
 					break;
 				case 3:
 					System.out.println("Estas presionando el 3");

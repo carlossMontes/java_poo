@@ -38,12 +38,32 @@ public class Mascota {
 		String msj;
 		byte vida = getVida();
 		
-		if (vida <= 100) {
-			msj = "Tu mascota se encuenta al 100%, mejor golpealo";
+		if (vida >= 100) {
+			msj = "Tu mascota ya se encuenta al 100%, mejor golpealo";
 		} else {
 			vida = (byte) (vida + 10);
 			setVida(vida);
 			msj = "Alimentación correcta. Tu mascota ahora tiene " + vida + "% de vida";
+		}
+		
+		return msj;
+	}
+	
+	public String golpear() {
+		String msj;
+		byte vida = getVida();
+		byte vidaAct;
+		
+		if (vida == 0) {
+			msj = "Tu mascota ya se encuentra muerta. Intenta revivirla";
+		} else if(vida == 10) {
+			vidaAct = (byte) (vida - 10);
+			setVida(vidaAct);
+			msj = "Tu mascota ha muerto";
+		} else {
+			vidaAct = (byte) (vida - 10);
+			setVida(vidaAct);
+			msj = "Tu mascota ha sido golpeada. Ahora tiene " + getVida() + "% de vida";
 		}
 		
 		return msj;
