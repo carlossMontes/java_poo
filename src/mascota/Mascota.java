@@ -3,7 +3,7 @@ package mascota;
 public class Mascota {
 	// Atributos
 	private String nombre;
-	private byte vida;
+	private int vida;
 	
 	// Constructores
 	// Constructor por defecto
@@ -18,25 +18,27 @@ public class Mascota {
 	}
 	
 	// Metodos
+	// Getters and Setters
 	public String getNombre() {
-		return this.nombre;
+		return nombre;
 	}
-	
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public byte getVida() {
-		return this.vida;
+
+	public int getVida() {
+		return vida;
 	}
-	
-	public void setVida(byte vida) {
+
+	public void setVida(int vida) {
 		this.vida = vida;
 	}
+		
 	
 	public String alimentar() {
 		String msj;
-		byte vida = getVida();
+		int vida = getVida();
 		
 		if (vida >= 100) {
 			msj = "Tu mascota ya se encuenta al 100%, mejor golpealo";
@@ -48,11 +50,11 @@ public class Mascota {
 		
 		return msj;
 	}
-	
+
 	public String golpear() {
 		String msj;
-		byte vida = getVida();
-		byte vidaAct;
+		int vida = getVida();
+		int vidaAct;
 		
 		if (vida == 0) {
 			msj = "Tu mascota ya se encuentra muerta. Intenta revivirla";
