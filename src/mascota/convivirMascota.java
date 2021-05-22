@@ -28,15 +28,19 @@ public class convivirMascota {
 					break;
 				case 3:
 					System.out.println("Estas presionando el 3");
+					System.out.println(mascota.revivir());
 					break;
 				case 4:
 					System.out.println("Estas presionando el 4");
+					System.out.println(mascota.matar());
 					break;
 				default:
 					System.out.println("No es un número válido");
 			}
 			opcion = sc.nextByte();
 		}
+		
+		System.out.println("Bye!");
 	}
 
 }

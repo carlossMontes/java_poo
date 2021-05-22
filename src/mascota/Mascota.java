@@ -42,7 +42,10 @@ public class Mascota {
 		
 		if (vida >= 100) {
 			msj = "Tu mascota ya se encuenta al 100%, mejor golpealo";
-		} else {
+		} else if (vida == 0) {
+			msj = "No puedes alimentar a tu mascota porque se encuentra muerta. Intenta revivirla";
+		} 
+		else {
 			vida = (byte) (vida + 10);
 			setVida(vida);
 			msj = "Alimentación correcta. Tu mascota ahora tiene " + vida + "% de vida";
@@ -66,6 +69,34 @@ public class Mascota {
 			vidaAct = (byte) (vida - 10);
 			setVida(vidaAct);
 			msj = "Tu mascota ha sido golpeada. Ahora tiene " + getVida() + "% de vida";
+		}
+		
+		return msj;
+	}
+	
+	public String revivir() {
+		String msj;
+		int vida = getVida();
+		
+		if (vida > 0) {
+			msj = "Tu mascota se encuentra con vida, no es necesario revivirla";
+		} else {
+			setVida(vida + 10);
+			msj = "Tu mascota ha sido golpeada. Ahora tiene " + getVida() + "% de vida, recuerda alimentarla";
+		}
+		
+		return msj;
+	}
+	
+	public String matar() {
+		String msj;
+		int vida = getVida();
+		
+		if (vida == 0) {
+			msj = "Tu mascota ya se encuentra muerta ):";
+		} else {
+			setVida(0);
+			msj = "Tu mascata acaba de morir ):";
 		}
 		
 		return msj;
