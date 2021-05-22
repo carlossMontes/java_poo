@@ -35,11 +35,12 @@ public class Mascota {
 		this.vida = vida;
 	}
 		
-	
+	// Metodo para alimentar a la mascota
 	public String alimentar() {
 		String msj;
 		int vida = getVida();
 		
+		// Si la mascota tiene 100 o más, no se suma. Si tiene 0 esta muerta, no suma. Si tiene entre 10 y 90 suma.
 		if (vida >= 100) {
 			msj = "Tu mascota ya se encuenta al 100%, mejor golpealo";
 		} else if (vida == 0) {
@@ -54,11 +55,13 @@ public class Mascota {
 		return msj;
 	}
 
+	// Metodo para golpear a la mascota
 	public String golpear() {
 		String msj;
 		int vida = getVida();
 		int vidaAct;
 		
+		// Si la mascota tiene 0, ya esta muerta. Si tiene 10, la mata. Si tiene entre 20 y 100 le resta 10
 		if (vida == 0) {
 			msj = "Tu mascota ya se encuentra muerta. Intenta revivirla";
 		} else if(vida == 10) {
@@ -74,10 +77,12 @@ public class Mascota {
 		return msj;
 	}
 	
+	// Metodo para revivir a la mascota
 	public String revivir() {
 		String msj;
 		int vida = getVida();
 		
+		// Si tiene 0 de vida, se revivie. Caso contrario tiene vida y no realiza nada
 		if (vida > 0) {
 			msj = "Tu mascota se encuentra con vida, no es necesario revivirla";
 		} else {
@@ -88,10 +93,12 @@ public class Mascota {
 		return msj;
 	}
 	
+	// Metodo para matar a la mascota
 	public String matar() {
 		String msj;
 		int vida = getVida();
 		
+		//Si tiene 0 de vida, ya esta muerta, no realiza nada. Si tiene vida, se mata
 		if (vida == 0) {
 			msj = "Tu mascota ya se encuentra muerta ):";
 		} else {
