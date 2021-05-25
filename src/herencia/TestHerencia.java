@@ -7,5 +7,7 @@ public class TestHerencia {
 		Profesor profe1 = new Profesor("MORC", "Carlos", 10000, "TICS");
 		
 		System.out.println(profe1);
+		
+		// Prueba GUI Git Integrado
 	}
 }
