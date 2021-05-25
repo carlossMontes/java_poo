@@ -6,6 +6,13 @@ public class Persona {
 	private int edad;
 	
 	// Constructor
+	
+	/**
+	 * Constructor del objeto persona
+	 * @param curp como string
+	 * @param nombre como string
+	 * @param edad como edad
+	 */
 	public Persona(String curp, String nombre, int edad) {
 		super();
 		this.curp = curp;
@@ -14,6 +21,11 @@ public class Persona {
 	}
 	
 	// Metodos
+	
+	/**
+	 * Este metodo recupera el valor de la curp
+	 * @return el valor de curp
+	 */
 	public String getCurp() {
 		return curp;
 	}
@@ -33,6 +45,10 @@ public class Persona {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Persona [curp=" + curp + ", nombre=" + nombre + ", edad=" + edad + "]";
+	}
 	
 }
