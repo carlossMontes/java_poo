@@ -1,53 +1,78 @@
 package escuela;
 
+import java.util.Scanner;
+
 public class Alumno {
 
 	// Atributos
 	private String nombre;
-	private double calif;
-	private double promedio;
-	
-	// Metodos
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public double getCalif() {
-		return calif;
-	}
-
-	public void setCalif(double calif) {
-		this.calif = calif;
-	}
-
-	public double getPromedio() {
-		return promedio;
-	}
-
-	public void setPromedio(double promedio) {
-		this.promedio = promedio;
-	}
-
-	// Constructor
-	public Alumno(String nombre, double calif, double promedio) {
-		super();
-		this.nombre = nombre;
-		this.calif = calif;
-		this.promedio = promedio;
-	}
+	private float[] arrNotas;
 	
 	/**
 	 * 
-	 * @return double promedio
+	 * @param nombre
+	 * @param cantidad
 	 * @author Carlos Montes
-	 * @param Numero de objeto
+	 * @date 25-05-2021
+	 * @desc Constructor del objeto Alumno que pide su nombre y la cantidad de notas a ingresar
 	 */
-	public double calcPromedio() {
-		return 0;
+	public Alumno(String nombre, int cantidad) {
+		this.nombre = nombre;
+		arrNotas = new float[cantidad];
 	}
+	
+	/**
+	 * @author Carlos Montes
+	 * @date 25-05-2021
+	 * @desc Metodo para ingresar las notas por teclado
+	 */
+	private void ingresarNotas() {
+		Scanner sc = new Scanner(System.in);
+		
+		for (int i = 0; i < arrNotas.length; i++) {
+			System.out.print("Ingrese nota " + (i+1) + ":");
+			arrNotas[i] = Float.parseFloat(sc.nextLine());
+		}
+	}
+	
+	private String getNombre() {
+		return this.nombre;
+	}
+	
+	/**
+	 * @author Carlos Montes
+	 * @date 25-05-2021
+	 * @desc Metoodo para mostrar las notas del alumno
+	 */
+	private void mostrarNotas() {
+		System.out.println("____________________________");
+		System.out.println("INFORME DE NOTAS DE [" + getNombre() + "]");
+		System.out.println("____________________________");
+		for (int i = 0; i < arrNotas.length; i++) {
+			System.out.print(arrNotas[i]);
+		}
+		
+		float promedio = promediarNotas();
+		
+		System.out.println("PROMEDIO --> " + promedio);
+		System.out.println("____________________________");
+	}
+	
+	/**
+	 * @author Carlos Montes
+	 * @date 25-05-2021
+	 * @desc Metodo para calcular el promedio de las notas
+	 */
+	public float promediarNotas() {
+		float suma = 0, promedio;
+		
+		for (int i = 0; i < arrNotas.length; i++) {
+			suma += arrNotas[i];
+		}
+		
+		promedio = suma / arrNotas.length;
+		return promedio;
+	}
+	
 	
 }
