@@ -26,11 +26,11 @@ public class Alumno {
 	 * @date 25-05-2021
 	 * @desc Metodo para ingresar las notas por teclado
 	 */
-	private void ingresarNotas() {
+	public void ingresarNotas() {
 		Scanner sc = new Scanner(System.in);
 		
 		for (int i = 0; i < arrNotas.length; i++) {
-			System.out.print("Ingrese nota " + (i+1) + ":");
+			System.out.print("Ingrese nota " + (i+1) + ": ");
 			arrNotas[i] = Float.parseFloat(sc.nextLine());
 		}
 	}
@@ -44,17 +44,15 @@ public class Alumno {
 	 * @date 25-05-2021
 	 * @desc Metoodo para mostrar las notas del alumno
 	 */
-	private void mostrarNotas() {
+	public void mostrarNotas() {
 		System.out.println("____________________________");
 		System.out.println("INFORME DE NOTAS DE [" + getNombre() + "]");
 		System.out.println("____________________________");
 		for (int i = 0; i < arrNotas.length; i++) {
-			System.out.print(arrNotas[i]);
+			System.out.println(arrNotas[i]);
 		}
 		
-		float promedio = promediarNotas();
-		
-		System.out.println("PROMEDIO --> " + promedio);
+		System.out.println("PROMEDIO --> " + promediarNotas());
 		System.out.println("____________________________");
 	}
 	
@@ -63,7 +61,7 @@ public class Alumno {
 	 * @date 25-05-2021
 	 * @desc Metodo para calcular el promedio de las notas
 	 */
-	public float promediarNotas() {
+	private float promediarNotas() {
 		float suma = 0, promedio;
 		
 		for (int i = 0; i < arrNotas.length; i++) {
