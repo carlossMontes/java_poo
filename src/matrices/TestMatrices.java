@@ -18,53 +18,59 @@ public class TestMatrices {
 
 		// Objetos
 		Random rd = new Random();
-		File logR = new File(url + "log.txt");
-		FileWriter logW = new FileWriter(url + "log.txt");
+		File fichero = new File(url + "log.txt");
+//		FileWriter logW = new FileWriter(url + "log.txt");
 		FileWriter txt = null;
-		Scanner sc = null;
+		Scanner s = null;
 
 		// Lectura de log;
-		try {
-			System.out.println("...Leyendo el log");
-			sc = new Scanner(logR);
-
-			while (sc.hasNextLine()) {
-				sc.nextLine();
-				contador++;
-			}
-
-			System.out.println("La cantidad de lineas es " + contador);
-
-			contador++;
-			logW.write(contador);
-			logW.close();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		// Fichero del que queremos leer
 
 		try {
-			txt = new FileWriter(url + "nums-" + contador);
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Existió algún error en el proceso");
-			e.printStackTrace();
-		}
+			// Leemos el contenido del fichero
+			System.out.println("... Leemos el contenido del fichero ...");
+			s = new Scanner(fichero);
 
-		int cont = 0;
-		for (int i = 0; i < nNums.length; i++) { // Ciclo para las filas
-			for (int j = 0; j < nNums[i].length; j++) { // Ciclo para las columnas
-				nNums[i][j] = cont;
-				cont++;
+			// Leemos linea a linea el fichero
+			while (s.hasNextLine()) {
+				String linea = s.nextLine(); // Guardamos la linea en un String
+				System.out.println(linea); // Imprimimos la linea
+			}
+
+		} catch (Exception ex) {
+			System.out.println("Mensaje: " + ex.getMessage());
+		} finally {
+			// Cerramos el fichero tanto si la lectura ha sido correcta o no
+			try {
+				if (s != null)
+					s.close();
+			} catch (Exception ex2) {
+				System.out.println("Mensaje 2: " + ex2.getMessage());
 			}
 		}
 
-		for (int i = 0; i < nNums.length; i++) { // Ciclo para las filas
-			for (int j = 0; j < nNums[i].length; j++) { // Ciclo para las columnas
-				System.out.print(nNums[i][j] + " ");
-			}
-			System.out.println();
-		}
+//		try {
+//			txt = new FileWriter(url + "nums-" + contador);
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			System.out.println("Existió algún error en el proceso");
+//			e.printStackTrace();
+//		}
+
+//		int cont = 0;
+//		for (int i = 0; i < nNums.length; i++) { // Ciclo para las filas
+//			for (int j = 0; j < nNums[i].length; j++) { // Ciclo para las columnas
+//				nNums[i][j] = cont;
+//				cont++;
+//			}
+//		}
+//
+//		for (int i = 0; i < nNums.length; i++) { // Ciclo para las filas
+//			for (int j = 0; j < nNums[i].length; j++) { // Ciclo para las columnas
+//				System.out.print(nNums[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
 	}
 
 }
