@@ -1,19 +1,26 @@
 package matrices;
 
+// Clases necesarias
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class TestAll {
 
 	public static void main(String[] args) {
+		
+		// Declaracion de variables globales
 		String url = "/home/cmontes/Documentos/java/nums/";
 		int contador = 0;
 
+		// Objetos creados. Los nulos serán instanciados más adelante
 		File leerArchivo = new File(url + "log.txt");
-		FileWriter escribirArchivo = null;
 		FileWriter crearArchivo = null;
 		Scanner sc = null;
+		BufferedWriter bw = null;
+		FileWriter fw = null;
 
 		// Lectura de log
 		try {
@@ -23,13 +30,14 @@ public class TestAll {
 
 			// Leemos linea a linea el fichero
 			while (sc.hasNextLine()) {
-				String linea = sc.nextLine(); // Guardamos la linea en un String
+				sc.nextLine(); // Guardamos la linea en un String
 				contador++;
 			}
 
 			System.out.println(contador);
 
 		} catch (Exception ex) {
+			// En caso de error manda el mensaje
 			System.out.println("Mensaje: " + ex.getMessage());
 		} finally {
 			// Cerramos el fichero tanto si la lectura ha sido correcta o no
@@ -44,21 +52,30 @@ public class TestAll {
 		// Creación de nuevo archivo
 		try {
 
-			escribirArchivo = new FileWriter(url + "log.txt");
-			contador++;
-			String previo = escribirArchivo.toString();
-			escribirArchivo.write(previo.toString() + "\n" + Integer.toString(contador));
-			escribirArchivo.close();
+			// Objetos instanciados. Se crea el escritor y el que toma todo lo que había antes
+			fw = new FileWriter(leerArchivo.getAbsoluteFile(), true);
+			bw = new BufferedWriter(fw);
+			bw.write(Integer.toString(contador + 1) + "\n");
+			System.out.println("información agregada!");
 
+			// Se crea nuevo archivo con el numero correspondiente del log
 			crearArchivo = new FileWriter(url + "nums-" + contador + ".txt");
-
-			// Escribimos linea a linea en el fichero
 			crearArchivo.write("Construido");
-
 			crearArchivo.close();
 
 		} catch (Exception ex) {
+			// Imprime mensaje de error
 			System.out.println("Mensaje de la excepción: " + ex.getMessage());
+		} finally {
+			try {
+				// Cierra instancias de FileWriter y BufferedWriter
+				if (bw != null)
+					bw.close();
+				if (fw != null)
+					fw.close();
+			} catch (IOException ex) {
+	            ex.printStackTrace();
+	        }
 		}
 
 	}
