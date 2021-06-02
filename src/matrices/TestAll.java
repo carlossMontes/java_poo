@@ -15,7 +15,7 @@ public class TestAll {
 	public static void main(String[] args) {
 
 		// 3 filas, 4 columnas
-		int[][] nNums = new int[3][3];
+		int[][] nNums = new int[10][10];
 
 		// Declaracion de variables globales
 		String url = "/home/cmontes/Documentos/java/nums/";
@@ -65,8 +65,8 @@ public class TestAll {
 			// antes
 			fw = new FileWriter(leerArchivo.getAbsoluteFile(), true);
 			bw = new BufferedWriter(fw);
-			bw.write(dtf.format(now) + " ");
-			bw.write(Integer.toString(contador + 1) + "\n");
+			bw.write(Integer.toString(contador + 1) + " ");
+			bw.write(dtf.format(now) + "\n");
 			System.out.println("información agregada!");
 
 			// Se crea nuevo archivo con el numero correspondiente del log
