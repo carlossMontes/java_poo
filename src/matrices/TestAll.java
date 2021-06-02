@@ -80,7 +80,11 @@ public class TestAll {
 
 			for (int i = 0; i < nNums.length; i++) { // Ciclo para las filas
 				for (int j = 0; j < nNums[i].length; j++) { // Ciclo para las columnas
-					crearArchivo.write(nNums[i][j] + ",");
+					if (j == (nNums[i].length - 1)) {
+						crearArchivo.write(Integer.toString(nNums[i][j]));
+					} else {
+						crearArchivo.write(nNums[i][j] + ",");
+					}
 				}
 				crearArchivo.write("\n");
 			}
